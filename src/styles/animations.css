@@ -1,0 +1,150 @@
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 1s ease-out forwards;
+}
+
+.delay-100 {
+    animation-delay: 100ms;
+}
+
+.delay-200 {
+    animation-delay: 200ms;
+}
+
+.delay-300 {
+    animation-delay: 300ms;
+}
+
+/* Efecto base reutilizable */
+.scroll-container {
+    transition-property: opacity, transform;
+    transition-duration: 800ms;
+    transition-timing-function: cubic-bezier(0.16, 0.84, 0.44, 1);
+    will-change: transform, opacity;
+}
+
+/* Variaciones opcionales (agregar como clases adicionales) */
+.scroll-container.delay-100 { transition-delay: 100ms; }
+.scroll-container.delay-200 { transition-delay: 200ms; }
+.scroll-container.fade-left { transform: translateX(-20px); }
+.scroll-container.fade-right { transform: translateX(20px); }
+
+.autoShow{
+    animation:autoShowAnimations both ;
+    animation-timeline:  view(80% auto);
+}
+
+@keyframes autoShowAnimations {
+    0% {
+        opacity: 0;
+        transform: translateY(100%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+.autoBlur{
+    animation:autoBlurAnimations linear both  ;
+    animation-timeline:  view();
+}
+
+@keyframes autoBlurAnimations {
+    0% {
+        filter: blur(15px);
+    }
+    60%, 90% {
+        filter: blur(0px);
+    }
+    100% {
+        filter: blur(15px);
+    }
+}
+
+
+.bounceLeftToCenter {
+    animation: bounceLeftToCenter 0.5s ease-in-out forwards;
+    animation-timeline: view(20% auto);
+}
+@keyframes bounceLeftToCenter {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    30% {
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-10%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.bounceRightToCenter {
+    animation: bounceRightToCenter 0.5s ease-in-out forwards;
+    animation-timeline: view(20% auto);
+}
+@keyframes bounceRightToCenter {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    30% {
+        transform: translateX(50%);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(10%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+.autoBackRepeler {
+    animation: autoBackRepeler linear forwards;
+    animation-timeline: view();
+    animation-range: exit;
+}
+
+@keyframes autoBackRepeler {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+/* Alternativa con efecto de desvanecimiento */
+/*
+@keyframes autoBackRepeler {
+    0% {
+        opacity: 1;
+        backdrop-filter: blur(0);
+    }
+    100% {
+        opacity: 0;
+        backdrop-filter: blur(10px);
+    }
+}
+*/
